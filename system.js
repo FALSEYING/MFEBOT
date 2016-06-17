@@ -3759,6 +3759,7 @@
 API.chatLog("Systém je zapnutý!");
 API.on(API.CHAT, autowoot);
 API.on(API.CHAT, afk);
+API.on(API.CHAT, here);
 API.on(API.CHAT, emoji);
 API.on(API.CHAT, adremove);
 API.on(API.CHAT, staff);
@@ -3776,7 +3777,15 @@ function afk(a){
 var msg = a.message;
 var meno = a.un;
 if (msg === "!afk"){
-API.sendChat("@" + meno + ", je aktuálne preč od klávesnice.");
+API.sendChat("@" + meno + ", is currently away from keyboard.");
+}
+}
+
+function here(a){
+var msg = a.message;
+var meno = a.un;
+if (msg === "!here"){
+API.sendChat("@" + meno + ", is here.");
 }
 }
 
