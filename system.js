@@ -3620,8 +3620,8 @@ API.chatLog("Systém je zapnutý!");
 API.on(API.CHAT, autowoot);
 API.on(API.CHAT, afk);
 API.on(API.CHAT, here);
-API.on(API.CHAT, hello);
-API.on(API.CHAT, emoji);
+//API.on(API.CHAT, hello);
+//API.on(API.CHAT, emoji);
 API.on(API.CHAT, adremove);
 API.on(API.CHAT, staff);
 API.on(API.CHAT, facebook);
@@ -3650,14 +3650,14 @@ API.sendChat("@" + meno + ", is here.");
 }
 }
 
-function hello(a){
-var msg = a.message;
-var meno = a.un;
-var to = user.username;
-if (msg === "!hello @" + to + ""){
-API.sendChat("@" + meno + " said hello to @" + to + "!");
-}
-}
+//function hello(a){
+//var msg = a.message;
+//var meno = a.un;
+//var to = user.username;
+//if (msg === "!hello @" + to + ""){
+//API.sendChat("@" + meno + " said hello to @" + to + "!");
+//}
+//}
 
 //function emoji(a){
 //var msg = a.message;
