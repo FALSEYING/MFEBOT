@@ -35,7 +35,7 @@ API.sendChat("@" + meno + ", is here.");
 function hello(a){
 var msg = a.message;
 var meno = a.un;
-var to = user.username;
+var to = a.username;
 if (msg === "!hello @" + to + ""){
 API.sendChat("@" + meno + " said hello to @" + to + "!");
 }
