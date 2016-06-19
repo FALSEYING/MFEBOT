@@ -3799,10 +3799,9 @@ API.sendChat("@" + meno + ", is here.");
 function adremove(a){
 var msg = a.message;
 var from = a.uid;
-var meno = a.un;
 if (msg === "https://plug.dj/"){
 API.moderateDeleteChat(a.cid);
-API.sendChat("@" + meno + ", You have been banned for sharing another room link into our community!");			
+API.sendChat("You have been banned for sharing another room link into our community!");			
 API.moderateBanUser(from, 1, API.BAN.PERMA);
 }
 }
