@@ -3542,38 +3542,6 @@
 
                         var medzera = sprava.indexOf(' ');
                         if(medzera === -1) {
-                            API.sendChat("@" + chat.un + " Invalid user specified. Please try again");
-                            return false;
-                        }
-                        else {
-                            var meno = sprava.substring(medzera + 2);
-                            var user = basicBot.userUtilities.lookupUserName(meno);
-                            if(user === false || !user.inRoom) {
-                                return API.sendChat("@" + chat.un + ", I don't see this person in my community list!");
-                            }
-                            else if(user.username === chat.un) {
-                                return API.sendChat("@" + chat.un + ", You want to say hello to yourself? Okey, hello @" + chat.un +"!");
-                            }
-                            else {
-                                return API.sendChat("@" + user.username + ", said Hello to @" + chat.un + "! <3");
-                            }
-                        }
-                    }
-                }
-            },
-            
-            sendrulesCommand: {
-                command: 'sendrules',
-                rank: 'user',
-                type: 'startsWith',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        var sprava = chat.message;
-
-                        var medzera = sprava.indexOf(' ');
-                        if(medzera === -1) {
                             API.sendChat("@" + chat.un + ", Invalid user specified. Please try again!");
                             return false;
                         }
@@ -3584,10 +3552,42 @@
                                 return API.sendChat("@" + chat.un + ", I don't see this person in my community list!");
                             }
                             else if(user.username === chat.un) {
-                                return API.sendChat("@" + chat.un + ", You want to send rules for yourself? Well okay> https://bit.ly/MFERULES!");
+                                return API.sendChat("@" + chat.un + ", You want to say hello to yourself? Okey, Hello @" + chat.un +"!");
                             }
                             else {
-                                return API.sendChat("@" + user.username + ", @" + chat.un + " send you our rules> https://bit.ly/MFERULES!");
+                                return API.sendChat("@" + chat.un + ", said Hello to @" + user.username + "! <3");
+                            }
+                        }
+                    }
+                }
+            },
+            
+            rulesCommand: {
+                command: 'rules',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var sprava = chat.message;
+
+                        var medzera = sprava.indexOf(' ');
+                        if(medzera === -1) {
+                            API.sendChat("@" + chat.un + ", our community rules> https://bit.ly/MFERULES!");
+                            return false;
+                        }
+                        else {
+                            var meno = sprava.substring(medzera + 2);
+                            var user = basicBot.userUtilities.lookupUserName(meno);
+                            if(user === false || !user.inRoom) {
+                                return API.sendChat("@" + chat.un + ", I don't see this person in my community list!");
+                            }
+                            else if(user.username === chat.un) {
+                                return API.sendChat("@" + chat.un + ", our community rules> https://bit.ly/MFERULES!");
+                            }
+                            else {
+                                return API.sendChat("@" + user.username + ", @" + chat.un + " sent you our rules> https://bit.ly/MFERULES!");
                             }
                         }
                     }
@@ -3606,20 +3606,20 @@
 
                         var medzera = sprava.indexOf(' ');
                         if(medzera === -1) {
-                            API.sendChat("/me @" + chat.un + " Invalid user specified. Please try again");
+                            API.sendChat("@" + chat.un + ", You can find Adblock here> https://bit.ly/ADBLOCK!");
                             return false;
                         }
                         else {
                             var meno = sprava.substring(medzera + 2);
                             var user = basicBot.userUtilities.lookupUserName(meno);
                             if(user === false || !user.inRoom) {
-                                return API.sendChat("@" + chat.un + " I dont see this person in my list :sob:");
+                                return API.sendChat("@" + chat.un + ", I don't see this person in my community list!");
                             }
                             else if(user.username === chat.un) {
-                                return API.sendChat("@" + chat.un + " Im sending adblock link for you,lel : http://bit.ly/195msgN");
+                                return API.sendChat("@" + chat.un + ", You can find Adblock here> https://bit.ly/ADBLOCK!");
                             }
                             else {
-                                return API.sendChat("[@" + chat.un + "] : @" + user.username + " You can find adblock here: http://bit.ly/195msgN");
+                                return API.sendChat("@" + user.username + ", @" + chat.un + " sent you Adblock link> https://bit.ly/ADBLOCK!");
                             }
                         }
                     }
@@ -3638,27 +3638,27 @@
 
                         var medzera = sprava.indexOf(' ');
                         if(medzera === -1) {
-                            API.sendChat("/me @" + chat.un + " Invalid user specified. Please try again");
+                            API.sendChat("@" + chat.un + ", Invalid user specified. Please try again!");
                             return false;
                         }
                         else {
                             var meno = sprava.substring(medzera + 2);
                             var user = basicBot.userUtilities.lookupUserName(meno);
                             if(user === false || !user.inRoom) {
-                                return API.sendChat("@" + chat.un + " I dont see this person in my list so im eating bacon for myself ;P :bacon:");
+                                return API.sendChat("@" + chat.un + ", I don't see this person in my community list! I eat :bacon: for myself!");
                             }
                             else if(user.username === chat.un) {
-                                return API.sendChat("@" + chat.un + " You cant eat your own bacon ! +1 bacon for me ! :bacon:");
+                                return API.sendChat("@" + chat.un + ", Bon appetite!");
                             }
                             else {
-                                return API.sendChat("[@" + chat.un + "] : @" + user.username + " sends you sweet and delicious bacon. Bon apetit ! :bacon: ");
+                                return API.sendChat("@" + chat.un + ", sent delicious :bacon: to @" + user.username + "!");
                             }
                         }
                     }
                 }
             },
             
-            staffappCommand: {
+            staffCommand: {
                 command: 'staff',
                 rank: 'user',
                 type: 'startsWith',
@@ -3670,29 +3670,29 @@
 
                         var medzera = sprava.indexOf(' ');
                         if(medzera === -1) {
-                            API.sendChat("/me @" + chat.un + " Invalid user specified. Please try again");
+                            API.sendChat("@" + chat.un + ", our community Staff App> https://bit.ly/MFESTAFF!");
                             return false;
                         }
                         else {
                             var meno = sprava.substring(medzera + 2);
                             var user = basicBot.userUtilities.lookupUserName(meno);
                             if(user === false || !user.inRoom) {
-                                return API.sendChat("@" + chat.un + " I dont see this person in my list :disappointed: ");
+                                return API.sendChat("@" + chat.un + ", I don't see this person in my community list!");
                             }
                             else if(user.username === chat.un) {
-                                return API.sendChat("@" + chat.un + " You cant send staff app for yourself, LMAO.");
+                                return API.sendChat("@" + chat.un + ", our community Staff App> https://bit.ly/MFESTAFF!");
                             }
                             else {
-                                return API.sendChat("[@" + chat.un + "] : @" + user.username + " Apply your staff application today: https://bit.ly/MFESTAFF ! ");
+                                return API.sendChat("@" + user.username + ", @" + chat.un + " sent you our Staff App> https://bit.ly/MFESTAFF!");
                             }
                         }
                     }
                 }
             },
             
-            sendfbCommand: {
-                command: 'sendfb',
-                rank: 'bouncer',
+            fbCommand: {
+                command: 'fb',
+                rank: 'user',
                 type: 'startsWith',
                 functionality: function (chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
@@ -3702,20 +3702,52 @@
 
                         var medzera = sprava.indexOf(' ');
                         if(medzera === -1) {
-                            API.sendChat("/me @" + chat.un + " Invalid user specified. Please try again");
+                            API.sendChat("@" + chat.un + ", our Facebook page> https://bit.ly/MFEFB! Our Facebook group> https://bit.ly/MFEGROUP!");
                             return false;
                         }
                         else {
                             var meno = sprava.substring(medzera + 2);
                             var user = basicBot.userUtilities.lookupUserName(meno);
                             if(user === false || !user.inRoom) {
-                                return API.sendChat("@" + chat.un + " I dont see this person in my list :disappointed: ");
+                                return API.sendChat("@" + chat.un + ", I don't see this person in my community list!");
                             }
                             else if(user.username === chat.un) {
-                                return API.sendChat("@" + chat.un + " Do you really want to send fb link for yourself ? LMAO.");
+                                return API.sendChat("@" + chat.un + ", our Facebook page> https://bit.ly/MFEFB! Our Facebook group> https://bit.ly/MFEGROUP!");
                             }
                             else {
-                                return API.sendChat("[@" + chat.un + "] : @" + user.username + " Follow us on facebook: https://bit.ly/MFEFB ! Join our Facebook group today: https://bit.ly/MFEGROUP!");
+                                return API.sendChat("@" + user.username + ", @" + chat.un + " sent you our Facebook page> https://bit.ly/MFEFB and our Facebook group> https://bit.ly/MFEGROUP!");
+                            }
+                        }
+                    }
+                }
+            },
+            
+            autowootCommand: {
+                command: 'autowoot',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        var sprava = chat.message;
+
+                        var medzera = sprava.indexOf(' ');
+                        if(medzera === -1) {
+                            API.sendChat("@" + chat.un + ", We use RCS Autowoot> https://rcs.radiant.dj!");
+                            return false;
+                        }
+                        else {
+                            var meno = sprava.substring(medzera + 2);
+                            var user = basicBot.userUtilities.lookupUserName(meno);
+                            if(user === false || !user.inRoom) {
+                                return API.sendChat("@" + chat.un + ", I don't see this person in my community list!");
+                            }
+                            else if(user.username === chat.un) {
+                                return API.sendChat("@" + chat.un + ", We use RCS Autowoot> https://rcs.radiant.dj!");
+                            }
+                            else {
+                                return API.sendChat("@" + user.username + ", @" + chat.un + " sent you RCS AutoWoot> https://rcs.radiant.dj!");
                             }
                         }
                     }
@@ -3743,32 +3775,20 @@
 
 // 2016 Music For Everyone(MFE), all rights reserved.
 API.chatLog("System is online!");
-API.chatLog("This script is only for Music For Everyone room and you have no rights to use them for yourself.");
-API.on(API.CHAT, autowoot);
 API.on(API.CHAT, afk);
 API.on(API.CHAT, here);
-API.on(API.CHAT, facebook);
-API.on(API.CHAT, rules);
-API.on(API.CHAT, mfeemoji);
 API.on(API.CHAT, adremove);
 
-function adremove(a) {
-    var me = API.getUser();
-    var msg = a.message;
-    var from = a.uid;
-    if (from != me) {
-        if (msg.toLowerCase().indexOf("https://plug.dj/") > -1) {
-            API.moderateDeleteChat(a.cid);
-			API.sendChat("[MFEGuard] You have been muted for spamming or sharing another room links into our community.");			
-			API.moderateMuteUser(from, 1,API.MUTE.LONG);
-       }
-    }
-}
-
-function autowoot(a){
+function adremove(a){
+var me = API.getUser();
 var msg = a.message;
-if (msg === "!autowoot"){
-API.sendChat("RCS AutoWoot> https://rcs.radiant.dj!");
+var from = a.uid;
+if (from != me){
+if (msg.toLowerCase().indexOf("https://plug.dj/") > -1){
+API.moderateDeleteChat(a.cid);
+API.sendChat("[MFEGuard] You have been muted for spamming or sharing another room links into our community.");			
+API.moderateMuteUser(from, 1,API.MUTE.LONG);
+}
 }
 }
 
@@ -3785,20 +3805,5 @@ var msg = a.message;
 var meno = a.un;
 if (msg === "!here"){
 API.sendChat("@" + meno + ", is here.");
-}
-}
-
-
-function facebook(a){
-var msg = a.message;
-if (msg === "!facebook"){
-API.sendChat("Follow us on Facebook: https://bit.ly/MFEFB ! Join our Facebook group today: https://bit.ly/MFEGROUP !"); 
-}
-}
-
-function rules(a){
-var msg = a.message;
-if (msg === "!rules"){
-API.sendChat("You can find rules here: https://bit.ly/MFERULES!");
 }
 }
