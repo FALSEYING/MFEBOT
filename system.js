@@ -637,61 +637,7 @@
                     clearTimeout(basicBot.roomUtilities.booth.lockTimer);
                 }
             },
-            afkCheck: function () {
-                if (!basicBot.status || !basicBot.settings.afkRemoval) return void (0);
-                var rank = basicBot.roomUtilities.rankToNumber(basicBot.settings.afkRankCheck);
-                var djlist = API.getWaitList();
-                var lastPos = Math.min(djlist.length, basicBot.settings.afkpositionCheck);
-                if (lastPos - 1 > djlist.length) return void (0);
-                for (var i = 0; i < lastPos; i++) {
-                    if (typeof djlist[i] !== 'undefined') {
-                        var id = djlist[i].id;
-                        var user = basicBot.userUtilities.lookupUser(id);
-                        if (typeof user !== 'boolean') {
-                            var plugUser = basicBot.userUtilities.getUser(user);
-                            if (rank !== null && basicBot.userUtilities.getPermission(plugUser) <= rank) {
-                                var name = plugUser.username;
-                                var lastActive = basicBot.userUtilities.getLastActivity(user);
-                                var inactivity = Date.now() - lastActive;
-                                var time = basicBot.roomUtilities.msToStr(inactivity);
-                                var warncount = user.afkWarningCount;
-                                if (inactivity > basicBot.settings.maximumAfk * 60 * 1000) {
-                                    if (warncount === 0) {
-                                        API.sendChat(subChat(basicBot.chat.warning1, {name: name, time: time}));
-                                        user.afkWarningCount = 3;
-                                        user.afkCountdown = setTimeout(function (userToChange) {
-                                            userToChange.afkWarningCount = 1;
-                                        }, 90 * 1000, user);
-                                    }
-                                    else if (warncount === 1) {
-                                        API.sendChat(subChat(basicBot.chat.warning2, {name: name}));
-                                        user.afkWarningCount = 3;
-                                        user.afkCountdown = setTimeout(function (userToChange) {
-                                            userToChange.afkWarningCount = 2;
-                                        }, 30 * 1000, user);
-                                    }
-                                    else if (warncount === 2) {
-                                        var pos = API.getWaitListPosition(id);
-                                        if (pos !== -1) {
-                                            pos++;
-                                            basicBot.room.afkList.push([id, Date.now(), pos]);
-                                            user.lastDC = {
 
-                                                time: null,
-                                                position: null,
-                                                songCount: 0
-                                            };
-                                            API.moderateRemoveDJ(id);
-                                            API.sendChat(subChat(basicBot.chat.afkremove, {name: name, time: time, position: pos, maximumafk: basicBot.settings.maximumAfk}));
-                                        }
-                                        user.afkWarningCount = 0;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
             smartSkip: function (reason) {
                 var dj = API.getDJ();
                 var id = dj.id;
