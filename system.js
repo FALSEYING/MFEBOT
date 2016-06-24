@@ -319,12 +319,6 @@
             //autoskip: false,
             autoskipTimer: null,
             autodisableInterval: null,
-            autodisableFunc: function () {
-                if (basicBot.status && basicBot.settings.autodisable) {
-                    API.sendChat('!afkdisable');
-                    API.sendChat('!joindisable');
-                }
-            },
             queueing: 0,
             queueable: true,
             currentDJID: null,
@@ -1569,19 +1563,6 @@
                             basicBot.settings.autoskip = !basicBot.settings.autoskip;
                             return API.sendChat(subChat(basicBot.chat.toggleon, {name: chat.un, 'function': basicBot.chat.autoskip}));
                         }
-                    }
-                }
-            },
-
-            autowootCommand: {
-                command: 'autowoot',
-                rank: 'user',
-                type: 'exact',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        API.sendChat(basicBot.chat.autowoot);
                     }
                 }
             },
