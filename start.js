@@ -3549,13 +3549,13 @@
                             var meno = sprava.substring(medzera + 2);
                             var user = basicBot.userUtilities.lookupUserName(meno);
                             if(user === false || !user.inRoom) {
-                                return API.sendChat("@" + chat.un + " I dont see this person in my list so im saying hello for everyone. hello @everyone");
+                                return API.sendChat("@" + chat.un + ", I don't see this person in my community list!");
                             }
                             else if(user.username === chat.un) {
-                                return API.sendChat("@" + chat.un + " Wait...?! do you want to say hi for yourself ? Okay then. Hello @"+ chat.un + " .");
+                                return API.sendChat("@" + chat.un + ", You want to say hello to yourself? Okey, hello @" + chat.un +"!");
                             }
                             else {
-                                return API.sendChat("@" + user.username + ", @" + chat.un + " said HELLO to you <3");
+                                return API.sendChat("@" + user.username + ", said Hello to @" + chat.un + "! <3");
                             }
                         }
                     }
@@ -3574,20 +3574,20 @@
 
                         var medzera = sprava.indexOf(' ');
                         if(medzera === -1) {
-                            API.sendChat("/me @" + chat.un + " Invalid user specified. Please try again");
+                            API.sendChat("@" + chat.un + ", Invalid user specified. Please try again!");
                             return false;
                         }
                         else {
                             var meno = sprava.substring(medzera + 2);
                             var user = basicBot.userUtilities.lookupUserName(meno);
                             if(user === false || !user.inRoom) {
-                                return API.sendChat("@" + chat.un + " I dont see this person in my list :sob:");
+                                return API.sendChat("@" + chat.un + ", I don't see this person in my community list!");
                             }
                             else if(user.username === chat.un) {
-                                return API.sendChat("@" + chat.un + " wait.. what ? You want to send rules for yourself ? Well okay: https://bit.ly/MFERULES");
+                                return API.sendChat("@" + chat.un + ", You want to send rules for yourself? Well okay> https://bit.ly/MFERULES!");
                             }
                             else {
-                                return API.sendChat("[@" + chat.un + "] : @" + user.username + " You can find rules page here: https://bit.ly/MFERULES");
+                                return API.sendChat("@" + user.username + ", @" + chat.un + " send you our rules> https://bit.ly/MFERULES!");
                             }
                         }
                     }
