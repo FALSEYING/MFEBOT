@@ -3680,6 +3680,38 @@
                     }
                 }
             },
+            
+            //afkCommand: {
+                //command: 'afk',
+                //rank: 'user',
+                //type: 'startsWith',
+                //functionality: function (chat, cmd) {
+                   // if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    //if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    //else {
+                        //var sprava = chat.message;
+
+                        //var medzera = sprava.indexOf(' ');
+                        //if(medzera === -1) {
+                            //API.sendChat("@" + chat.un + ", Invalid user specified. Please try again!");
+                            //return false;
+                        //}
+                        //else {
+                            //var meno = sprava.substring(medzera + 2);
+                            //var user = basicBot.userUtilities.lookupUserName(meno);
+                            //if(user === false || !user.inRoom) {
+                                //return API.sendChat("@" + chat.un + ", I don't see this person in my community list!");
+                            //}
+                            //else if(user.username === chat.un) {
+                                //return API.sendChat("@" + chat.un + ", You want to say hello to yourself? Okey, Hello @" + chat.un +"!");
+                            //}
+                            //else {
+                                //return API.sendChat("@" + chat.un + ", said Hello to @" + user.username + "! <3");
+                            //}
+                        //}
+                   // }
+                //}
+           // },
 
             youtubeCommand: {
                 command: 'youtube',
