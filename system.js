@@ -3767,3 +3767,69 @@ if (msg === "!here"){
 API.sendChat("@" + meno + ", is here.");
 }
 }
+
+// 2016 Music For Everyone(MFE), all rights reserved.
+var msgs=[
+"Follow us on Facebook: https://bit.ly/MFEFB! Our Facebook group: https://bit.ly/MFEGROUP!",
+"Check our community rules here: https://bit.ly/MFERULES!",
+"Add Rohlik on Snapchat: http://puu.sh/qdN1K/5c67459874.jpg!",
+"Vote for us: http://strawpoll.me/990611!",
+"Thank you for your support! <3"
+];
+var time=1800; // v sekundách
+var timer;
+API.on(API.CHAT_COMMAND, command);
+API.sendChat("/startmsg");
+ 
+function command(value){
+console.log("command called");
+var commandfunction = "";
+
+if (value.indexOf(" ") == -1){
+var commandfunction = value.substring(value.indexOf("/")+1,value.length);
+}
+
+else{
+var commandfunction = value.substring(value.indexOf("/")+1,value.indexOf(" "));
+}
+
+var commandcontent =  value.substring(value.indexOf(" ")+1,value.length);
+
+console.log("commandfunction: " + commandfunction);
+console.log("commandcontent: " + commandcontent);
+
+switch(commandfunction){
+
+case "msg":
+console.log("msg called");
+API.chatLog("SPRÁVA "+ commandcontent + "> \'" + msgs[parseInt(commandcontent)-1] +"\'", true);
+break;
+
+case "pausemsg":
+console.log("pausemsg called");
+stoptimer();
+API.chatLog("Správy sa teraz neodosielajú!",true);
+break;
+
+case "startmsg":
+console.log("startmsg called");
+refreshtimer();
+API.chatLog("Správy sa teraz odosielajú!",true);
+break;
+}
+}
+ 
+function postmsg(){
+var random = Math.floor((Math.random() * msgs.length));
+API.sendChat(msgs[random]);
+}
+ 
+function refreshtimer(){
+stoptimer(timer);
+timer = window.setInterval(postmsg, time*1000);
+}
+ 
+function stoptimer(){
+window.clearInterval(timer);
+timer = null;
+}
