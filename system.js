@@ -242,7 +242,7 @@
         loggedInID: null,
         scriptLink: "https://rawgit.com/bscBot/source/master/basicBot.js",
         cmdLink: "http://git.io/245Ppg",
-        chatLink: "https://rawgit.com/FALSEYING/MFEBOT/master/en.json",
+        chatLink: "https://dl.dropboxusercontent.com/s/n3ys2sxxi6g6adg/en.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -250,7 +250,7 @@
         settings: {
             botName: "MFEBOT",
             language: "en",
-            chatLink: "https://rawgit.com/FALSEYING/MFEBOT/master/en.json",
+            chatLink: "https://dl.dropboxusercontent.com/s/n3ys2sxxi6g6adg/en.json",
             scriptLink: "https://rawgit.com/bscBot/source/master/basicBot.js",
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
