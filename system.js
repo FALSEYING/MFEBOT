@@ -364,7 +364,7 @@
                     var ind = Math.floor(Math.random() * basicBot.room.roulette.participants.length);
                     var winner = basicBot.room.roulette.participants[ind];
                     basicBot.room.roulette.participants = [];
-                    var cisla = ["2", "3", "4", "5", "3"];
+                    var cisla = ["6", "3", "5", "4", "2"];
                     var pos = cisla[Math.floor(Math.random() * cisla.length)];
                     var user = basicBot.userUtilities.lookupUser(winner);
                     var name = user.username;
