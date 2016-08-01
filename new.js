@@ -1,6 +1,6 @@
 // FALSEYING 2016 | Všetky práva vyhradené!
 
-API.sendChat("system.botname  is online! Version system.version!");
+API.sendChat(system.botname  is online! Version system.version!);
 
 var system = {
 author: "FALSEYING",
