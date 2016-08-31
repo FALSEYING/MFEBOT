@@ -3631,6 +3631,20 @@
                 }
             },
             
+            awayCommand: {
+                command: 'away',
+                rank: 'user',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        API.moderateDeleteChat(chat.cid);
+                        API.sendChat("/me @" + chat.un + " Is AFK for: " + chat.message.substr(cmd.length + 1));
+                    }
+                }
+            },
+            
             autowootCommand: {
                 command: 'autowoot',
                 rank: 'user',
