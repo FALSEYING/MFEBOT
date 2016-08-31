@@ -3755,6 +3755,7 @@ var msgs=[
 "Check our community rules here: https://bit.ly/MFERULES!",
 "Add Rohlik on Snapchat: http://puu.sh/qdN1K/5c67459874.jpg!",
 "Vote for us: http://strawpoll.me/990611!",
+"AutoWoot for our community: https://rcs.radiant.dj/install!",
 "Thank you for your support! <3"
 ];
 var time=1800; // v sekundách
